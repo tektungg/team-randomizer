@@ -2,7 +2,7 @@
 
 A modern, minimalistic web application for randomizing teams with drag-and-drop functionality. Perfect for organizing groups, sports teams, study groups, or any scenario where you need to divide people into balanced teams.
 
-![Team Randomizer](https://img.shields.io/badge/Version-1.0-blue) ![HTML](https://img.shields.io/badge/HTML-5-orange) ![CSS](https://img.shields.io/badge/CSS-3-blue) ![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow)
+![Team Randomizer](https://img.shields.io/badge/Version-1.1-blue) ![HTML](https://img.shields.io/badge/HTML-5-orange) ![CSS](https://img.shields.io/badge/CSS-3-blue) ![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow)
 
 ## Features
 
@@ -147,7 +147,7 @@ A: Currently, results are not saved automatically. You can take a screenshot or 
 - Custom team names
 - Team history tracking
 - Advanced distribution algorithms
-- Dark mode theme
+- Dark mode theme ✅
 
 ## Contributing
 
