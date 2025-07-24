@@ -434,6 +434,8 @@
         
         function handleDrop(e) {
             e.preventDefault();
+            e.stopPropagation(); // Prevent event bubbling to team handler
+            
             if (e.target.classList.contains('member') && draggedElement && e.target !== draggedElement) {
                 // Swap members
                 const targetTeam = parseInt(e.target.getAttribute('data-team'));
@@ -446,6 +448,7 @@
                 teams[targetTeam].members[targetMember] = temp;
                 
                 renderTeams();
+                return; // Exit early to prevent team drop handler
             }
             e.target.classList.remove('drag-over');
         }
@@ -458,6 +461,12 @@
         
         function handleTeamDrop(e) {
             e.preventDefault();
+            
+            // Only handle if the drop target is the team container itself, not a member
+            if (e.target.classList.contains('member')) {
+                return; // Let the member drop handler handle this
+            }
+            
             const targetTeam = parseInt(e.currentTarget.getAttribute('data-team'));
             
             if (draggedElement && draggedFromTeam !== targetTeam) {
