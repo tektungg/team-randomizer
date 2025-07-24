@@ -17,6 +17,12 @@
             min-height: 100vh;
             padding: 20px;
             color: #333;
+            transition: all 0.3s ease;
+        }
+
+        body.dark {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #e0e0e0;
         }
 
         .container {
@@ -27,15 +33,69 @@
             padding: 40px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
             backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        body.dark .container {
+            background: rgba(30, 30, 50, 0.95);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
         }
 
         h1 {
-            text-align: center;
-            margin-bottom: 40px;
             font-weight: 300;
             font-size: 2.5em;
             color: #2c3e50;
             letter-spacing: -1px;
+            margin: 0;
+            transition: color 0.3s ease;
+        }
+
+        body.dark h1 {
+            color: #e0e0e0;
+        }
+
+        .theme-toggle {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
+        }
+
+        body.dark .theme-toggle {
+            background: rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        body.dark .theme-toggle:hover {
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .theme-icon {
+            font-size: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .theme-toggle:hover .theme-icon {
+            transform: rotate(20deg);
         }
 
         .input-section {
@@ -58,6 +118,7 @@
             font-size: 14px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            transition: color 0.3s ease;
         }
 
         textarea {
@@ -70,15 +131,13 @@
             resize: vertical;
             transition: all 0.3s ease;
             font-family: inherit;
-            caret-color: #333; /* Force dark cursor */
-            color: #333; /* Ensure text is dark */
+            color: #333;
         }
 
         textarea:focus {
             outline: none;
             border-color: #667eea;
             box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-            caret-color: #333; /* Force dark cursor */
         }
 
         input[type="number"] {
@@ -88,15 +147,37 @@
             font-size: 16px;
             width: 120px;
             transition: all 0.3s ease;
-            caret-color: #333; /* Force dark cursor */
         }
 
         input[type="number"]:focus {
             outline: none;
             border-color: #667eea;
             box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-            caret-color: #333; /* Force dark cursor */
         }
+
+        /* ===== KODE PERBAIKAN DARK MODE UNTUK INPUT ===== */
+        body.dark label {
+            color: #b0b0b0;
+        }
+
+        body.dark textarea,
+        body.dark input[type="number"] {
+            background-color: #2a2a3e;
+            color: #e0e0e0;
+            border-color: #444;
+            caret-color: #e0e0e0;
+        }
+
+        body.dark textarea::placeholder {
+            color: #777;
+        }
+
+        body.dark textarea:focus,
+        body.dark input[type="number"]:focus {
+            border-color: #7c3aed;
+            box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.25);
+        }
+        /* ================================================= */
 
         .randomize-btn {
             background: linear-gradient(135deg, #667eea, #764ba2);
@@ -137,10 +218,21 @@
             transition: all 0.3s ease;
         }
 
+        body.dark .team {
+            background: #2a2a3e;
+            border-color: #444;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
         .team.drag-over {
             border-color: #667eea;
             background: rgba(102, 126, 234, 0.05);
             transform: scale(1.02);
+        }
+
+        body.dark .team.drag-over {
+            border-color: #7c3aed;
+            background: rgba(124, 58, 237, 0.1);
         }
 
         .team-header {
@@ -148,6 +240,11 @@
             margin-bottom: 16px;
             padding-bottom: 12px;
             border-bottom: 2px solid #f0f0f0;
+            transition: border-color 0.3s ease;
+        }
+
+        body.dark .team-header {
+            border-bottom-color: #444;
         }
 
         .team-name {
@@ -155,6 +252,11 @@
             font-weight: 600;
             color: #2c3e50;
             margin-bottom: 4px;
+            transition: color 0.3s ease;
+        }
+
+        body.dark .team-name {
+            color: #e0e0e0;
         }
 
         .team-count {
@@ -162,6 +264,11 @@
             color: #7f8c8d;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            transition: color 0.3s ease;
+        }
+
+        body.dark .team-count {
+            color: #888;
         }
 
         .member {
@@ -176,11 +283,20 @@
             position: relative;
         }
 
+        body.dark .member {
+            background: linear-gradient(135deg, #3a3a4e, #2f2f42);
+            color: #e0e0e0;
+        }
+
         .member:hover {
             background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
             transform: translateY(-1px);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        body.dark .member:hover {
+            background: linear-gradient(135deg, #7c3aed, #8b5cf6);
         }
 
         .member.dragging {
@@ -195,11 +311,21 @@
             background: rgba(102, 126, 234, 0.1);
         }
 
+        body.dark .member.drag-over {
+            border-color: #7c3aed;
+            background: rgba(124, 58, 237, 0.2);
+        }
+
         .empty-state {
             text-align: center;
             color: #7f8c8d;
             font-style: italic;
             padding: 20px;
+            transition: color 0.3s ease;
+        }
+
+        body.dark .empty-state {
+            color: #666;
         }
 
         @media (max-width: 768px) {
@@ -231,6 +357,11 @@
             padding-top: 30px;
             border-top: 1px solid rgba(0, 0, 0, 0.1);
             text-align: center;
+            transition: border-color 0.3s ease;
+        }
+
+        body.dark .footer {
+            border-top-color: rgba(255, 255, 255, 0.1);
         }
 
         .footer-content {
@@ -247,11 +378,21 @@
             display: flex;
             align-items: center;
             gap: 6px;
+            transition: color 0.3s ease;
+        }
+
+        body.dark .footer-text {
+            color: #888;
         }
 
         .footer-text strong {
             color: #2c3e50;
             font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        body.dark .footer-text strong {
+            color: #b0b0b0;
         }
 
         .heart {
@@ -266,6 +407,11 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            transition: color 0.3s ease;
+        }
+
+        body.dark .footer-links {
+            color: #666;
         }
 
         .footer-version {
@@ -276,8 +422,17 @@
             font-weight: 500;
         }
 
+        body.dark .footer-version {
+            background: linear-gradient(135deg, #7c3aed, #8b5cf6);
+        }
+
         .footer-separator {
             color: #d0d0d0;
+            transition: color 0.3s ease;
+        }
+
+        body.dark .footer-separator {
+            color: #555;
         }
 
         @keyframes heartbeat {
@@ -295,7 +450,12 @@
 </head>
 <body>
     <div class="container">
-        <h1>Team Randomizer</h1>
+        <div class="header">
+            <h1>Team Randomizer</h1>
+            <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+                <span class="theme-icon">🌙</span>
+            </button>
+        </div>
         
         <div class="input-section">
             <div class="input-group">
@@ -331,6 +491,31 @@
         let teams = [];
         let draggedElement = null;
         let draggedFromTeam = null;
+
+        // Theme management
+        function initTheme() {
+            const savedTheme = localStorage.getItem('teamRandomizerTheme') || 'light';
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark');
+                updateThemeIcon();
+            }
+        }
+
+        function toggleTheme() {
+            document.body.classList.toggle('dark');
+            const isDark = document.body.classList.contains('dark');
+            localStorage.setItem('teamRandomizerTheme', isDark ? 'dark' : 'light');
+            updateThemeIcon();
+        }
+
+        function updateThemeIcon() {
+            const themeIcon = document.querySelector('.theme-icon');
+            const isDark = document.body.classList.contains('dark');
+            themeIcon.textContent = isDark ? '☀️' : '🌙';
+        }
+
+        // Initialize theme on page load
+        document.addEventListener('DOMContentLoaded', initTheme);
 
         function randomizeTeams() {
             const namesText = document.getElementById('names').value.trim();
@@ -389,14 +574,14 @@
                         ${team.members.length > 0 
                             ? team.members.map((member, memberIndex) => `
                                 <div class="member" 
-                                     draggable="true" 
-                                     data-team="${teamIndex}" 
-                                     data-member="${memberIndex}"
-                                     ondragstart="handleDragStart(event)"
-                                     ondragend="handleDragEnd(event)"
-                                     ondragover="handleDragOver(event)"
-                                     ondragleave="handleDragLeave(event)"
-                                     ondrop="handleDrop(event)">
+                                    draggable="true" 
+                                    data-team="${teamIndex}" 
+                                    data-member="${memberIndex}"
+                                    ondragstart="handleDragStart(event)"
+                                    ondragend="handleDragEnd(event)"
+                                    ondragover="handleDragOver(event)"
+                                    ondragleave="handleDragLeave(event)"
+                                    ondrop="handleDrop(event)">
                                     ${member}
                                 </div>
                             `).join('')
