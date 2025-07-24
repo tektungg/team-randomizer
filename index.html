@@ -70,12 +70,15 @@
             resize: vertical;
             transition: all 0.3s ease;
             font-family: inherit;
+            caret-color: #333; /* Force dark cursor */
+            color: #333; /* Ensure text is dark */
         }
 
         textarea:focus {
             outline: none;
             border-color: #667eea;
             box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            caret-color: #333; /* Force dark cursor */
         }
 
         input[type="number"] {
@@ -85,12 +88,14 @@
             font-size: 16px;
             width: 120px;
             transition: all 0.3s ease;
+            caret-color: #333; /* Force dark cursor */
         }
 
         input[type="number"]:focus {
             outline: none;
             border-color: #667eea;
             box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            caret-color: #333; /* Force dark cursor */
         }
 
         .randomize-btn {
@@ -390,6 +395,7 @@
                                      ondragstart="handleDragStart(event)"
                                      ondragend="handleDragEnd(event)"
                                      ondragover="handleDragOver(event)"
+                                     ondragleave="handleDragLeave(event)"
                                      ondrop="handleDrop(event)">
                                     ${member}
                                 </div>
@@ -482,6 +488,13 @@
                 renderTeams();
             }
             e.currentTarget.classList.remove('drag-over');
+        }
+        
+        function handleDragLeave(e) {
+            // Remove drag-over class when leaving a member
+            if (e.target.classList.contains('member')) {
+                e.target.classList.remove('drag-over');
+            }
         }
         
         function handleTeamDragLeave(e) {
