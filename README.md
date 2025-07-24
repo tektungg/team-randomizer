@@ -31,7 +31,7 @@ A modern, minimalistic web application for randomizing teams with drag-and-drop 
    Alex Brown
    ```
 
-2. **Set Team Count**: Use the number input to specify how many teams you want (minimum 2, maximum 20)
+2. **Set Team Count**: Use the number input to specify how many teams you want (minimum 2)
 
 ### 3. Randomize Teams
 1. Click the **"Randomize"** button
@@ -119,7 +119,6 @@ team-randomizer/
 
 ### Performance
 - Handles up to 1000+ names efficiently
-- Maximum 20 teams for optimal display
 - Works smoothly on mobile devices
 
 ## Troubleshooting
