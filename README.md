@@ -123,6 +123,9 @@ team-randomizer/
 
 ## Troubleshooting
 
+**Q: Some features doesn't work**
+A: Try hard refresh the page (Ctrl + F5 or Ctrl + Shift + R)
+
 **Q: The randomize button doesn't work**
 A: Ensure you have entered at least as many names as the number of teams specified
 
