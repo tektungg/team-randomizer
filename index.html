@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -132,6 +133,7 @@
             transition: all 0.3s ease;
             font-family: inherit;
             color: #333;
+            overflow: hidden;
         }
 
         textarea:focus {
@@ -207,7 +209,7 @@
             border: none;
             padding: 16px 24px;
             border-radius: 12px;
-            font-size: 14px;
+            font-size: 16px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -495,11 +497,13 @@
             color: #ffc107;
         }
 
-        .guide-features, .guide-use-cases {
+        .guide-features,
+        .guide-use-cases {
             margin-top: 40px;
         }
 
-        .guide-features h3, .guide-use-cases h3 {
+        .guide-features h3,
+        .guide-use-cases h3 {
             color: #2c3e50;
             margin-bottom: 20px;
             font-size: 22px;
@@ -513,7 +517,8 @@
             color: #e0e0e0;
         }
 
-        .features-grid, .use-cases-grid {
+        .features-grid,
+        .use-cases-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
@@ -588,29 +593,30 @@
                 grid-template-columns: 1fr;
                 gap: 16px;
             }
-            
+
             .container {
                 padding: 20px;
             }
-            
+
             h1 {
                 font-size: 2em;
             }
-            
+
             .guide-section {
                 padding: 20px;
             }
-            
+
             .guide-step {
                 flex-direction: column;
                 gap: 12px;
             }
-            
+
             .step-number {
                 align-self: flex-start;
             }
-            
-            .features-grid, .use-cases-grid {
+
+            .features-grid,
+            .use-cases-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -620,8 +626,15 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .footer {
@@ -708,8 +721,17 @@
         }
 
         @keyframes heartbeat {
-            0%, 50%, 100% { transform: scale(1); }
-            25%, 75% { transform: scale(1.1); }
+
+            0%,
+            50%,
+            100% {
+                transform: scale(1);
+            }
+
+            25%,
+            75% {
+                transform: scale(1.1);
+            }
         }
 
         @media (max-width: 768px) {
@@ -720,6 +742,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <div class="header">
@@ -728,34 +751,34 @@
                 <span class="theme-icon">🌙</span>
             </button>
         </div>
-        
+
         <div class="input-section">
             <div class="input-group">
                 <label for="names">Enter Names (one per line)</label>
                 <textarea id="names" placeholder="John Doe&#10;Jane Smith&#10;Mike Johnson&#10;Sarah Wilson"></textarea>
             </div>
-            
+
             <div class="input-group">
                 <label for="groups">Number of Teams</label>
-                <input type="number" id="groups" min="2" max="20" value="2">
+                <input type="number" id="groups" min="2" value="2">
             </div>
-            
+
             <button class="randomize-btn" onclick="randomizeTeams()">Randomize</button>
-            
+
             <button class="guide-btn" onclick="toggleGuide()" id="guideBtn">
                 <span class="guide-text">Show Guide</span>
             </button>
         </div>
-        
+
         <div class="teams-container" id="teamsContainer"></div>
-        
+
         <!-- Usage Guide Section -->
         <div class="guide-section" id="guideSection" style="display: none;">
             <div class="guide-header">
                 <h2>📖 How to Use Team Randomizer</h2>
                 <p>Learn how to make the most of all the features available</p>
             </div>
-            
+
             <div class="guide-content">
                 <div class="guide-step">
                     <div class="step-number">1</div>
@@ -771,7 +794,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="guide-step">
                     <div class="step-number">2</div>
                     <div class="step-content">
@@ -782,7 +805,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="guide-step">
                     <div class="step-number">3</div>
                     <div class="step-content">
@@ -790,7 +813,7 @@
                         <p>Hit the randomize button and watch as all names are shuffled and distributed fairly across your teams!</p>
                     </div>
                 </div>
-                
+
                 <div class="guide-step">
                     <div class="step-number">4</div>
                     <div class="step-content">
@@ -806,7 +829,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="guide-features">
                 <h3>✨ Key Features</h3>
                 <div class="features-grid">
@@ -840,7 +863,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="guide-use-cases">
                 <h3>🎯 Perfect For</h3>
                 <div class="use-cases-grid">
@@ -863,7 +886,7 @@
                 </div>
             </div>
         </div>
-        
+
         <footer class="footer">
             <div class="footer-content">
                 <div class="footer-text">
@@ -914,13 +937,16 @@
             const guideBtn = document.getElementById('guideBtn');
             const guideText = guideBtn.querySelector('.guide-text');
             const guideIcon = guideBtn.querySelector('.guide-icon');
-            
+
             if (guideSection.style.display === 'none' || guideSection.style.display === '') {
                 guideSection.style.display = 'block';
                 guideSection.classList.add('fade-in');
                 guideText.textContent = 'Hide Guide';
                 guideIcon.textContent = '📖';
-                guideSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                guideSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
             } else {
                 guideSection.style.display = 'none';
                 guideText.textContent = 'Show Guide';
@@ -928,54 +954,67 @@
             }
         }
 
+        function getTeamNameFromIndex(index) {
+            let teamName = '';
+            let num = index + 1;
+            while (num > 0) {
+                let remainder = (num - 1) % 26;
+                teamName = String.fromCharCode(65 + remainder) + teamName;
+                num = Math.floor((num - 1) / 26);
+            }
+            return teamName;
+        }
+
         function randomizeTeams() {
             const namesText = document.getElementById('names').value.trim();
             const numGroups = parseInt(document.getElementById('groups').value);
-            
+
             if (!namesText) {
                 alert('Please enter some names!');
                 return;
             }
-            
+
             if (numGroups < 2) {
                 alert('Please enter at least 2 teams!');
                 return;
             }
-            
+
             const names = namesText.split('\n').filter(name => name.trim() !== '');
-            
+
             if (names.length < numGroups) {
                 alert('You need at least as many names as teams!');
                 return;
             }
-            
+
             // Shuffle names
             const shuffledNames = [...names].sort(() => Math.random() - 0.5);
-            
+
             // Initialize teams
-            teams = Array.from({ length: numGroups }, (_, i) => ({
-                name: `Team ${String.fromCharCode(65 + i)}`,
+            teams = Array.from({
+                length: numGroups
+            }, (_, i) => ({
+                name: `Team ${getTeamNameFromIndex(i)}`,
                 members: []
             }));
-            
+
             // Distribute names evenly
             shuffledNames.forEach((name, index) => {
                 const teamIndex = index % numGroups;
                 teams[teamIndex].members.push(name.trim());
             });
-            
+
             renderTeams();
         }
-        
+
         function renderTeams() {
             const container = document.getElementById('teamsContainer');
             container.innerHTML = '';
-            
+
             teams.forEach((team, teamIndex) => {
                 const teamDiv = document.createElement('div');
                 teamDiv.className = 'team fade-in';
                 teamDiv.setAttribute('data-team', teamIndex);
-                
+
                 teamDiv.innerHTML = `
                     <div class="team-header">
                         <div class="team-name">${team.name}</div>
@@ -1000,23 +1039,23 @@
                         }
                     </div>
                 `;
-                
+
                 // Add team drop listeners
                 teamDiv.addEventListener('dragover', handleTeamDragOver);
                 teamDiv.addEventListener('drop', handleTeamDrop);
                 teamDiv.addEventListener('dragleave', handleTeamDragLeave);
-                
+
                 container.appendChild(teamDiv);
             });
         }
-        
+
         function handleDragStart(e) {
             draggedElement = e.target;
             draggedFromTeam = parseInt(e.target.getAttribute('data-team'));
             e.target.classList.add('dragging');
             e.dataTransfer.effectAllowed = 'move';
         }
-        
+
         function handleDragEnd(e) {
             e.target.classList.remove('dragging');
             document.querySelectorAll('.drag-over').forEach(el => {
@@ -1025,7 +1064,7 @@
             draggedElement = null;
             draggedFromTeam = null;
         }
-        
+
         function handleDragOver(e) {
             e.preventDefault();
             e.dataTransfer.dropEffect = 'move';
@@ -1033,66 +1072,66 @@
                 e.target.classList.add('drag-over');
             }
         }
-        
+
         function handleDrop(e) {
             e.preventDefault();
             e.stopPropagation(); // Prevent event bubbling to team handler
-            
+
             if (e.target.classList.contains('member') && draggedElement && e.target !== draggedElement) {
                 // Swap members
                 const targetTeam = parseInt(e.target.getAttribute('data-team'));
                 const targetMember = parseInt(e.target.getAttribute('data-member'));
                 const draggedMember = parseInt(draggedElement.getAttribute('data-member'));
-                
+
                 // Swap the members
                 const temp = teams[draggedFromTeam].members[draggedMember];
                 teams[draggedFromTeam].members[draggedMember] = teams[targetTeam].members[targetMember];
                 teams[targetTeam].members[targetMember] = temp;
-                
+
                 renderTeams();
                 return; // Exit early to prevent team drop handler
             }
             e.target.classList.remove('drag-over');
         }
-        
+
         function handleTeamDragOver(e) {
             e.preventDefault();
             e.dataTransfer.dropEffect = 'move';
             e.currentTarget.classList.add('drag-over');
         }
-        
+
         function handleTeamDrop(e) {
             e.preventDefault();
-            
+
             // Only handle if the drop target is the team container itself, not a member
             if (e.target.classList.contains('member')) {
                 return; // Let the member drop handler handle this
             }
-            
+
             const targetTeam = parseInt(e.currentTarget.getAttribute('data-team'));
-            
+
             if (draggedElement && draggedFromTeam !== targetTeam) {
                 const draggedMember = parseInt(draggedElement.getAttribute('data-member'));
                 const memberName = teams[draggedFromTeam].members[draggedMember];
-                
+
                 // Remove from original team
                 teams[draggedFromTeam].members.splice(draggedMember, 1);
-                
+
                 // Add to target team
                 teams[targetTeam].members.push(memberName);
-                
+
                 renderTeams();
             }
             e.currentTarget.classList.remove('drag-over');
         }
-        
+
         function handleDragLeave(e) {
             // Remove drag-over class when leaving a member
             if (e.target.classList.contains('member')) {
                 e.target.classList.remove('drag-over');
             }
         }
-        
+
         function handleTeamDragLeave(e) {
             if (!e.currentTarget.contains(e.relatedTarget)) {
                 e.currentTarget.classList.remove('drag-over');
@@ -1100,4 +1139,5 @@
         }
     </script>
 </body>
+
 </html>
