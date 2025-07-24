@@ -17,8 +17,9 @@ A modern, minimalistic web application for randomizing teams with drag-and-drop 
 ## How to Use
 
 ### 1. Basic Setup
-1. Open the `index.html` file in any modern web browser
-2. No installation or server setup required!
+1. Just open https://tektungg.github.io/team-randomizer/, or:
+2. Open the `index.html` file in any modern web browser
+3. No installation or server setup required!
 
 ### 2. Input Your Data
 1. **Enter Names**: Type participant names in the text area, one name per line
