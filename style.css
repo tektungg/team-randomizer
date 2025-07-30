@@ -352,12 +352,24 @@ body.dark .team-header {
     font-size: 18px;
     font-weight: 600;
     color: #2c3e50;
-    margin-bottom: 4px;
-    transition: color 0.3s ease;
+    margin-bottom: 8px;
+    transition: color 0.3s ease, outline 0.3s ease;
+    border-radius: 5px;
+    padding: 2px 4px;
+    margin: -2px -4px 8px -4px;
+}
+
+.team-name:hover {
+    cursor: pointer;
+    outline: 2px solid #667eea;
 }
 
 body.dark .team-name {
     color: #e0e0e0;
+}
+
+body.dark .team-name:hover {
+    outline-color: #7c3aed;
 }
 
 .team-count {
