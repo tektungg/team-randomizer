@@ -7,6 +7,7 @@
     <title>Team Randomizer</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 
 <body>
@@ -34,6 +35,16 @@
             <button class="guide-btn" onclick="toggleGuide()" id="guideBtn">
                 <span class="guide-text">Show Guide</span>
             </button>
+
+            <div class="export-container" id="exportContainer" style="display: none;">
+                <button class="export-btn">
+                    Export <span class="dropdown-arrow">▼</span>
+                </button>
+                <div class="export-options">
+                    <a href="#" onclick="exportToPDF()">Export as PDF</a>
+                    <a href="#" onclick="exportToCSV()">Export as CSV</a>
+                </div>
+            </div>
         </div>
 
         <div class="teams-container" id="teamsContainer"></div>
@@ -93,6 +104,22 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="guide-step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>Export Your Results</h3>
+                        <p>Once you're happy with your teams, export the results for easy sharing and documentation:</p>
+                        <ul>
+                            <li><strong>📄 PDF Export:</strong> Create a professional-looking document with all team information</li>
+                            <li><strong>📊 CSV Export:</strong> Export to spreadsheet format for further analysis or record keeping</li>
+                        </ul>
+                        <div class="tip-box">
+                            <strong>💾 Export Tips:</strong> Files are automatically named with the current date for easy organization!
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
             <div class="guide-features">
@@ -158,7 +185,7 @@
                     Made with <span class="heart">♥</span> by <strong>Rama Pramudhita Bhaskara</strong>
                 </div>
                 <div class="footer-links">
-                    <span class="footer-version">v1.2</span>
+                    <span class="footer-version">v1.3</span>
                     <span class="footer-separator">•</span>
                     <span class="footer-year">2025</span>
                 </div>
