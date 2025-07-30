@@ -149,7 +149,6 @@ input[type="number"]:focus {
     box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
-/* Dark mode input styles */
 body.dark label {
     color: #b0b0b0;
 }
@@ -172,31 +171,9 @@ body.dark input[type="number"]:focus {
     box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.25);
 }
 
-.randomize-btn {
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    color: white;
-    border: none;
-    padding: 16px 32px;
-    border-radius: 12px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.randomize-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
-}
-
-.randomize-btn:active {
-    transform: translateY(0);
-}
-
+.randomize-btn,
+.copy-btn,
 .guide-btn {
-    background: linear-gradient(135deg, #28a745, #20c997);
     color: white;
     border: none;
     padding: 16px 24px;
@@ -207,11 +184,32 @@ body.dark input[type="number"]:focus {
     transition: all 0.3s ease;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+.randomize-btn {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.copy-btn {
+    background: linear-gradient(135deg, #17a2b8, #1f94a8);
+}
+
+.guide-btn {
+    background: linear-gradient(135deg, #28a745, #20c997);
     display: flex;
     align-items: center;
-    justify-content: center;
     gap: 8px;
-    white-space: nowrap;
+}
+
+.randomize-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+}
+
+.copy-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(23, 162, 184, 0.3);
 }
 
 .guide-btn:hover {
@@ -219,11 +217,12 @@ body.dark input[type="number"]:focus {
     box-shadow: 0 8px 16px rgba(40, 167, 69, 0.3);
 }
 
+.randomize-btn:active,
+.copy-btn:active,
 .guide-btn:active {
     transform: translateY(0);
 }
 
-/* Export Button Styles */
 .export-container {
     position: relative;
     display: inline-block;
@@ -301,7 +300,6 @@ body.dark .export-options a:hover {
 .export-container:hover .export-options {
     display: block;
 }
-
 
 .teams-container {
     display: grid;
@@ -441,7 +439,6 @@ body.dark .empty-state {
     color: #666;
 }
 
-/* Guide Section Styles */
 .guide-section {
     margin-top: 40px;
     background: rgba(255, 255, 255, 0.8);
@@ -807,15 +804,10 @@ body.dark .footer-separator {
 }
 
 @keyframes heartbeat {
-
-    0%,
-    50%,
-    100% {
+    0%, 50%, 100% {
         transform: scale(1);
     }
-
-    25%,
-    75% {
+    25%, 75% {
         transform: scale(1.1);
     }
 }
@@ -824,5 +816,53 @@ body.dark .footer-separator {
     .footer-content {
         flex-direction: column;
         gap: 10px;
+    }
+}
+
+/* Print-Friendly Styles */
+@media print {
+    body {
+        background: none;
+        padding: 0;
+        color: #000;
+    }
+
+    .header,
+    .input-section,
+    .footer,
+    .guide-section,
+    .theme-toggle {
+        display: none;
+    }
+
+    .container {
+        max-width: 100%;
+        padding: 0;
+        box-shadow: none;
+        border-radius: 0;
+        background: none;
+    }
+
+    .teams-container {
+        grid-template-columns: repeat(2, 1fr); /* Atur agar lebih rapi saat dicetak */
+        gap: 30px;
+        margin-top: 0;
+    }
+
+    .team {
+        box-shadow: none;
+        border: 1px solid #ccc;
+        page-break-inside: avoid; /* Hindari tim terpotong di antara halaman */
+    }
+
+    .team-name {
+        color: #000;
+    }
+
+    .member {
+        background: #f9f9f9;
+        color: #000;
+        box-shadow: none;
+        border: 1px solid #eee;
     }
 }

@@ -24,18 +24,14 @@
                 <label for="names">Enter Names (one per line)</label>
                 <textarea id="names" placeholder="John Doe&#10;Jane Smith&#10;Mike Johnson&#10;Sarah Wilson"></textarea>
             </div>
-
             <div class="input-group">
                 <label for="groups">Number of Teams</label>
                 <input type="number" id="groups" min="2" value="2">
             </div>
-
             <button class="randomize-btn" onclick="randomizeTeams()">Randomize</button>
-
             <button class="guide-btn" onclick="toggleGuide()" id="guideBtn">
                 <span class="guide-text">Show Guide</span>
             </button>
-
             <div class="export-container" id="exportContainer" style="display: none;">
                 <button class="export-btn">
                     Export <span class="dropdown-arrow">▼</span>
@@ -45,6 +41,10 @@
                     <a href="#" onclick="exportToCSV()">Export as CSV</a>
                 </div>
             </div>
+        </div>
+
+        <div id="copyContainer" style="display: none; text-align: center; margin-bottom: 24px;">
+            <button class="copy-btn" onclick="copyToClipboard()">Copy</button>
         </div>
 
         <div class="teams-container" id="teamsContainer"></div>
@@ -119,6 +119,14 @@
 
                 <div class="guide-step">
                     <div class="step-number">6</div>
+                    <div class="step-content">
+                        <h3>Copy Team Results</h3>
+                        <p>Easily copy all team data to your clipboard with a single click on the "Copy" button. The results will be formatted as plain text, ready to be pasted anywhere.</p>
+                    </div>
+                </div>
+
+                <div class="guide-step">
+                    <div class="step-number">7</div>
                     <div class="step-content">
                         <h3>Export Your Results</h3>
                         <p>Once you're happy with your teams, export the results for easy sharing and documentation:</p>
@@ -197,7 +205,7 @@
                     Made with <span class="heart">♥</span> by <strong>Rama Pramudhita Bhaskara</strong>
                 </div>
                 <div class="footer-links">
-                    <span class="footer-version">v1.3</span>
+                    <span class="footer-version">v1.4</span>
                     <span class="footer-separator">•</span>
                     <span class="footer-year">2025</span>
                 </div>

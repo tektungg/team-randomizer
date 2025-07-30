@@ -165,6 +165,14 @@ function renderTeams() {
     } else {
         exportContainer.style.display = 'none';
     }
+
+    const copyContainer = document.getElementById('copyContainer');
+    if (teams.length > 0) {
+        copyContainer.style.display = 'block';
+    } else {
+        copyContainer.style.display = 'none';
+    }
+
 }
 
 function handleDragStart(e) {
@@ -248,6 +256,30 @@ function handleTeamDragLeave(e) {
         e.currentTarget.classList.remove('drag-over');
     }
 }
+
+function copyToClipboard() {
+    if (!teams || teams.length === 0) {
+        alert('No teams to copy! Please randomize teams first.');
+        return;
+    }
+
+    let textToCopy = '';
+    teams.forEach(team => {
+        textToCopy += `${team.name}\n`;
+        team.members.forEach(member => {
+            textToCopy += `- ${member}\n`;
+        });
+        textToCopy += '\n';
+    });
+
+    navigator.clipboard.writeText(textToCopy.trim()).then(() => {
+        alert('Teams copied to clipboard!');
+    }).catch(err => {
+        console.error('Failed to copy: ', err);
+        alert('Failed to copy teams. Please try again.');
+    });
+}
+
 
 function exportToCSV() {
     if (!teams || teams.length === 0) {
